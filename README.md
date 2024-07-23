@@ -88,21 +88,24 @@ $role = Role::create(['name' => 'admin']);
 $permission = Permission::create(['name' => 'edit articles']);
 
 // Assign permission to role
-$role->givePermissionTo($permission);
+$role->givePermissionTo($permission)
 
 
-Assigning Roles to Users
+//Assigning Roles to Users
 You can assign roles to users using the following methods:
 
+---
+
+```php
 use App\Models\User;
 
 $user = User::find(1);
 $user->assignRole('admin');
 
 
-Usage
-Checking Roles and Permissions
-Check if a user has a specific role or permission:
+//Usage
+//Checking Roles and Permissions
+//Check if a user has a specific role or permission:
 
 
 $user->hasRole('admin'); // returns boolean
@@ -117,10 +120,10 @@ Route::group(['middleware' => ['role:admin']], function () {
 Route::group(['middleware' => ['permission:edit articles']], function () {
     Route::get('/articles/edit', [ArticleController::class, 'edit']);
 });
-Blade Directives
-Use Blade directives to show or hide content based on roles or permissions:
+//Blade Directives
+//Use Blade directives to show or hide content based on roles or permissions:
 
-blade File code
+//blade File code
 
 @role('admin')
     <p>This is visible to users with the admin role.</p>
@@ -130,7 +133,7 @@ blade File code
     <p>This is visible to users with the edit articles permission.</p>
 @endcan
 
-
+---
 
 <p align="center"><img src="/art/socialcard.png" alt="Social Card of Laravel Permission"></p>
 
