@@ -94,9 +94,9 @@ $role->givePermissionTo($permission)
 //Assigning Roles to Users
 You can assign roles to users using the following methods:
 
----
+php---
 
-```php
+
 use App\Models\User;
 
 $user = User::find(1);
